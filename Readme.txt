@@ -1,25 +1,25 @@
-# Budget Buddy
+Budget Buddy
 
-## Overview
+Overview
 
 **Budget Buddy** is a powerful income and expense management tool designed to help individuals and businesses efficiently track their finances. It simplifies daily, monthly, and yearly expense tracking, ensuring better financial stability and informed decision-making.
 
-## Features
+Features
 
-- **User-Friendly Dashboard** – Intuitive interface for seamless expense tracking.  
-- **Expense Management** – Add, edit, and categorize expenses effortlessly.  
-- **Income Tracking** – Monitor and manage income sources.  
-- **Report Generation** – Generate insightful financial reports for analysis.  
-- **Financial Insights** – Provides analytics to aid financial planning.  
-- **User Profile Management** – Personalized tracking for better organization.  
+- User-Friendly Dashboard – Intuitive interface for seamless expense tracking.  
+- Expense Management – Add, edit, and categorize expenses effortlessly.  
+- Income Tracking – Monitor and manage income sources.  
+- Report Generation – Generate insightful financial reports for analysis.  
+- Financial Insights – Provides analytics to aid financial planning.  
+- User Profile Management – Personalized tracking for better organization.  
 
-## Tech Stack
+Tech Stack
 
-- **Frontend**: HTML, CSS, Bootstrap, JavaScript  
-- **Backend**: PHP  
-- **Database**: MySQL  
+- Frontend: HTML, CSS, Bootstrap, JavaScript  
+- Backend: PHP  
+- Database: MySQL  
 
-## Installation and Setup
+Installation and Setup
 
 Follow these steps to set up Budget Buddy on your local system:
 
@@ -41,12 +41,12 @@ Follow these steps to set up Budget Buddy on your local system:
 
 ## Usage
 
-- **Add Expenses**: Enter details like amount, category, and date.
-- **Track Income**: Log income sources for financial balance.
-- **View Reports**: Analyze spending trends through charts and tables.
-- **Manage Categories**: Customize expense categories for better organization.
+- Add Expenses: Enter details like amount, category, and date.
+- Track Income: Log income sources for financial balance.
+- View Reports: Analyze spending trends through charts and tables.
+- Manage Categories: Customize expense categories for better organization.
 
-## Project Scope
+Project Scope
 
 **Budget Buddy** addresses challenges in manual expense tracking by automating calculations and categorization. It minimizes errors, reduces manual effort, and enhances financial efficiency. Businesses can streamline employee expense processing, payment, and auditing.
 
@@ -66,11 +66,11 @@ Follow these steps to set up Budget Buddy on your local system:
    http://localhost/dets
    ```
 
-### User Panel Credentials
+User Panel Credentials
 
 You can either register a new account or use the test credentials below:
-- **Username**: `testuser@gmail.com`
-- **Password**: `Test @123`
+- Username: `testuser@gmail.com`
+- Password: `Test @123`
 
 ---
 
