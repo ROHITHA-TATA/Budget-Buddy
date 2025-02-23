@@ -1,60 +1,79 @@
-BUDGET BUDDY
+# Budget Buddy
 
-OVERVIEW-
+## Overview
 
-The Budget Buddy project is designed to provide an efficient solution for income and expense management, catering to both individuals and businesses. It simplifies the process of tracking daily, monthly, and yearly expenses, helping users maintain financial stability and make informed decisions.  
+**Budget Buddy** is a powerful income and expense management tool designed to help individuals and businesses efficiently track their finances. It simplifies daily, monthly, and yearly expense tracking, ensuring better financial stability and informed decision-making.
 
-FEATURES-
+## Features
 
-- User-Friendly Dashboard – Provides an intuitive interface for expense tracking.  
-- Expense Management – Allows users to add, edit, and categorize expenses.  
-- Income Tracking – Helps manage and monitor income sources.  
-- Report Generation – Generates insightful financial reports.  
-- Financial Insights – Offers analytics for better financial planning.  
-- User Profile Management – Enables personalized expense tracking.  
+- **User-Friendly Dashboard** – Intuitive interface for seamless expense tracking.  
+- **Expense Management** – Add, edit, and categorize expenses effortlessly.  
+- **Income Tracking** – Monitor and manage income sources.  
+- **Report Generation** – Generate insightful financial reports for analysis.  
+- **Financial Insights** – Provides analytics to aid financial planning.  
+- **User Profile Management** – Personalized tracking for better organization.  
 
-TECH STACK-
+## Tech Stack
 
-- Frontend: HTML, CSS, Bootstrap, JavaScript  
-- Backend: PHP  
-- Database: MySQL  
+- **Frontend**: HTML, CSS, Bootstrap, JavaScript  
+- **Backend**: PHP  
+- **Database**: MySQL  
 
-INSTALLATION AND SETUP-
+## Installation and Setup
 
-1. Clone the repository:  
+Follow these steps to set up Budget Buddy on your local system:
 
+1. Clone the repository:
+   ```bash
    git clone https://github.com/your-username/expense-tracker.git
-
-2. Navigate to the project directory:  
-  
+   ```
+2. Navigate to the project directory:
+   ```bash
    cd expense-tracker
-  
-3. Import the database (`.sql` file) into MySQL.  
-4. Configure database connection settings in `config.php`.  
-5. Start a local server (e.g., XAMPP, WAMP, or LAMP).  
-6. Access the application via `http://localhost/expense-tracker`.  
+   ```
+3. Import the database (`detsdb.sql`) into MySQL using PHPMyAdmin.
+4. Configure the database connection settings in `config.php`.
+5. Start a local server using **XAMPP, WAMP, or LAMP**.
+6. Access the application via:
+   ```
+   http://localhost/expense-tracker
+   ```
 
-USAGE -
+## Usage
 
-- Add Expenses: Enter details like amount, category, and date.  
-- Track Income: Log income sources for financial balance.  
-- View Reports: Analyze spending trends through charts and tables.  
-- Manage Categories: Customize expense categories for better organization.  
+- **Add Expenses**: Enter details like amount, category, and date.
+- **Track Income**: Log income sources for financial balance.
+- **View Reports**: Analyze spending trends through charts and tables.
+- **Manage Categories**: Customize expense categories for better organization.
 
-PROJECT SCOPE -
+## Project Scope
 
-This project addresses the difficulties individuals face in manually tracking expenses, especially large amounts. By automating calculations and categorization, it minimizes errors, reduces manual effort, and enhances financial management efficiency. Businesses can also streamline processes for processing, paying, and auditing employee expenses. 
+**Budget Buddy** addresses challenges in manual expense tracking by automating calculations and categorization. It minimizes errors, reduces manual effort, and enhances financial efficiency. Businesses can streamline employee expense processing, payment, and auditing.
 
-HOW TO RUN THE PROJECT -
+## How to Run the Project
 
-1. Download the  zip file
-2. Extract the file and copy dets folder
-3.Paste inside root directory(for xampp xampp/htdocs, for wamp wamp/www, for lamp var/www/html)
-4. Open PHPMyAdmin (http://localhost/phpmyadmin)
-5. Create a database with name detsdb 
-6. Import detsdb.sql file(given inside the zip package in sql file folder)
-7.Run the script http://localhost/dets (frontend)
-Credential for user panel  OR you can register your self:
-Username: testuser@gmail.com
-Password: Test @123
+1. Download the ZIP file.
+2. Extract the file and copy the `dets` folder.
+3. Paste it inside the root directory:
+   - **XAMPP**: `xampp/htdocs`
+   - **WAMP**: `wamp/www`
+   - **LAMP**: `var/www/html`
+4. Open PHPMyAdmin (`http://localhost/phpmyadmin`).
+5. Create a database named `detsdb`.
+6. Import the `detsdb.sql` file (found in the `sql` folder inside the ZIP package).
+7. Run the script in your browser:
+   ```
+   http://localhost/dets
+   ```
+
+### User Panel Credentials
+
+You can either register a new account or use the test credentials below:
+- **Username**: `testuser@gmail.com`
+- **Password**: `Test @123`
+
+---
+
+**Budget Buddy** is your go-to tool for effective financial management and expense tracking. Start managing your finances today!
+
 
