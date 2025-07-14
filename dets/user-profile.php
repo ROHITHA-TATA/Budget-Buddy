@@ -1,124 +1,84 @@
 <?php
 session_start();
-error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include('includes/dbconnection.php');
 if (strlen($_SESSION['detsuid']==0)) {
   header('location:logout.php');
-  } else{
-    if(isset($_POST['submit']))
-  {
-    $userid=$_SESSION['detsuid'];
-    $fullname=$_POST['fullname'];
-  $mobno=$_POST['contactnumber'];
-
-     $query=mysqli_query($con, "update tbluser set FullName ='$fullname', MobileNumber='$mobno' where ID='$userid'");
-    if ($query) {
-    $msg="User profile has been updated.";
-  }
-  else
-    {
-      $msg="Something Went Wrong. Please try again.";
-    }
-  }
-  ?>
+  exit();
+}
+$userid = $_SESSION['detsuid'];
+$ret = mysqli_query($con, "select * from tbluser where ID='$userid'");
+$row = mysqli_fetch_array($ret);
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Daily Expense Tracker || User Profile</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/datepicker3.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!--Custom Font-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Budget Buddy - Profile</title>
+    <link href="css/modern-styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-	<?php include_once('includes/header.php');?>
-	<?php include_once('includes/sidebar.php');?>
-		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#">
-					<em class="fa fa-home"></em>
-				</a></li>
-				<li class="active">Profile</li>
-			</ol>
-		</div><!--/.row-->
-		
-		
-				
-		
-		<div class="row">
-			<div class="col-lg-12">
-			
-				
-				
-				<div class="panel panel-default">
-					<div class="panel-heading">Profile</div>
-					<div class="panel-body">
-						<p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
-						<div class="col-md-12">
-							 <?php
-$userid=$_SESSION['detsuid'];
-$ret=mysqli_query($con,"select * from tbluser where ID='$userid'");
-$cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
+<body class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar-modern">
+        <div class="sidebar-header">
+            <span class="navbar-brand"><i class="fas fa-wallet"></i> Budget Buddy</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="dashboard.php" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="add-expense.php" class="nav-link"><i class="fas fa-plus-circle"></i> Add Expense</a>
+            <a href="manage-expense.php" class="nav-link"><i class="fas fa-tasks"></i> Manage Expenses</a>
+            <div class="mb-2 mt-3" style="color: var(--gray-400); font-size: 0.9rem; padding-left: 1.5rem;">REPORTS</div>
+            <a href="expense-datewise-reports.php" class="nav-link"><i class="fas fa-calendar-day"></i> Daily Reports</a>
+            <a href="expense-monthwise-reports.php" class="nav-link"><i class="fas fa-calendar-alt"></i> Monthly Reports</a>
+            <a href="expense-yearwise-reports.php" class="nav-link"><i class="fas fa-calendar"></i> Yearly Reports</a>
+            <div class="mb-2 mt-3" style="color: var(--gray-400); font-size: 0.9rem; padding-left: 1.5rem;">SETTINGS</div>
+            <a href="user-profile.php" class="nav-link active"><i class="fas fa-user"></i> Profile</a>
+            <a href="change-password.php" class="nav-link"><i class="fas fa-key"></i> Change Password</a>
+            <a href="logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
 
-?>
-							<form role="form" method="post" action="">
-								<div class="form-group">
-									<label>Full Name</label>
-									<input class="form-control" type="text" value="<?php  echo $row['FullName'];?>" name="fullname" required="true">
-								</div>
-								<div class="form-group">
-									<label>Email</label>
-<input type="email" class="form-control" name="email" value="<?php  echo $row['Email'];?>" required="true" readonly="true">
-								</div>
-								
-								<div class="form-group">
-									<label>Mobile Number</label>
-									<input class="form-control" type="text" value="<?php  echo $row['MobileNumber'];?>" required="true" name="contactnumber" maxlength="10">
-								</div>
-								<div class="form-group">
-									<label>Registration Date</label>
-									<input class="form-control" name="regdate" type="text" value="<?php  echo $row['RegDate'];?>" readonly="true">
-								</div>
-								
-								<div class="form-group has-success">
-									<button type="submit" class="btn btn-primary" name="submit">Update</button>
-								</div>
-								
-								
-								</div>
-								<?php } ?>
-							</form>
-						</div>
-					</div>
-				</div><!-- /.panel-->
-			</div><!-- /.col-->
-			<?php include_once('includes/footer.php');?>
-		</div><!-- /.row -->
-	</div><!--/.main-->
-	
-<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/custom.js"></script>
-	
+    <!-- Main Content -->
+    <main class="main-content" style="margin-left: 280px; min-height: 100vh;">
+        <header class="navbar-modern d-flex align-center justify-between mb-4" style="position: static;">
+            <div class="d-flex align-center">
+                <span class="navbar-brand"><i class="fas fa-wallet"></i> Budget Buddy</span>
+            </div>
+            <div class="d-flex align-center" style="gap: 1rem;">
+                <span style="font-weight: 500;"><i class="fas fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['detsuname'] ?? 'User'); ?></span>
+            </div>
+        </header>
+        <nav class="breadcrumb-modern mb-4">
+            <span class="breadcrumb-item"><a href="dashboard.php" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a></span>
+            <span class="breadcrumb-item active">Profile</span>
+        </nav>
+        <section class="content-card p-4 shadow-lg" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="card-title mb-3"><i class="fas fa-user"></i> Profile</h2>
+            <div class="form-modern">
+                <div class="form-group">
+                    <label for="fullname"><i class="fas fa-user"></i> Full Name</label>
+                    <input class="form-control" id="fullname" value="<?php echo htmlspecialchars($row['FullName']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input class="form-control" id="email" value="<?php echo htmlspecialchars($row['Email']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                    <input class="form-control" id="mobile" value="<?php echo htmlspecialchars($row['MobileNumber']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="regdate"><i class="fas fa-calendar"></i> Registration Date</label>
+                    <input class="form-control" id="regdate" value="<?php echo htmlspecialchars($row['RegDate']); ?>" readonly>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/modern-scripts.js"></script>
 </body>
 </html>
-<?php }  ?>
